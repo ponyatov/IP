@@ -1,0 +1,19 @@
+%{
+#include "hpp.hpp"
+%}
+%defines %union { Sym*o; }
+%token <o> SYM NUM STR			/* skalars: symbol number 'string' */
+%token <o> LP RP LQ RQ LC RC	/* brackets: () [] {} */
+%token <o> EQ AT TILD			/* operators: = @ ~ */
+%type <o> ex scalar list		/* [li st] */
+%%
+REPL : | REPL ex { cout << $2->dump() << endl; } ;
+scalar : SYM | NUM | STR ;
+ex : scalar
+	| ex EQ ex		{ $$=$2; $$->push($1); $$->push($3); }
+	| LQ list RQ	{ $$=$2; }
+;
+list :				{ $$=new List(); }
+	| list ex		{ $$=$1; $$->push($2); }
+;
+%%
