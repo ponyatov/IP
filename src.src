@@ -1,11 +1,15 @@
 
 skelex = [
-	src.src log.log
+	src log.log
 	files = [ ypp.ypp lpp.lpp hpp.hpp cpp.cpp Makefile ]
 	.gitignore sh.sh bat.bat
 ]
 
+src = file@src.src
+
 files
+
+skelex
 
 .end
 
