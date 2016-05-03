@@ -15,6 +15,8 @@ struct Sym {
 	virtual string tagval(); string tagstr(); string pad(int);
 	virtual Sym* eval();
 	virtual Sym* eq(Sym*);
+	virtual Sym* at(Sym*);
+	virtual string str();
 };
 
 extern map<string,Sym*> env;
@@ -25,6 +27,11 @@ struct Str: Sym { Str(string); string tagval(); };
 struct List: Sym { List(); };
 
 struct Op: Sym { Op(string); Sym*eval(); };
+
+typedef Sym*(*FN)(Sym*);
+struct Fn: Sym { Fn(string,FN); FN fn; Sym*at(Sym*); };
+
+struct File: Sym { File(string); static Sym* file(Sym*); string tagval(); };
 
 extern int yylex();
 extern int yylineno;

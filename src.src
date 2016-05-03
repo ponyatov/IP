@@ -5,7 +5,7 @@ skelex = [
 	.gitignore sh.sh bat.bat
 ]
 
-src = file@src.src
+src = file@src.src src
 
 files
 
