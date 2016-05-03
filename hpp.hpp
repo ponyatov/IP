@@ -12,11 +12,14 @@ struct Sym {
 	Sym(string,string); Sym(string);
 	vector<Sym*> nest; void push(Sym*);
 	virtual string dump(int=0);
-	virtual string tagval(); string pad(int);
+	virtual string tagval(); string tagstr(); string pad(int);
+	virtual Sym* eval();
 };
 
 extern map<string,Sym*> env;
 extern void env_init();
+
+struct Str: Sym { Str(string); string tagval(); };
 
 struct List: Sym { List(); };
 

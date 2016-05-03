@@ -1,6 +1,16 @@
+
 skelex = [
 	src.src log.log
 	files = [ ypp.ypp lpp.lpp hpp.hpp cpp.cpp Makefile ]
 	.gitignore sh.sh bat.bat
+]
+
+files
+
+.end
+
+sh.sh = [
+	'#!/bin/sh'
+	'gvim -p '+files/' '
 ]
 

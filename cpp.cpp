@@ -14,6 +14,12 @@ string Sym::dump(int depth) { string S = "\n"+pad(depth)+tagval();
 		S += (*it)->dump(depth+1);
 	return S; }
 
+Sym* Sym::eval() { return this; }
+
+Str::Str(string V):Sym("str",V) {}
+string Sym::tagstr() { return "<"+tag+":'"+val+":'>"; }
+string Str::tagval() { return tagstr(); }
+
 List::List():Sym("[","]") {}
 
 Op::Op(string V):Sym("op",V) {}
