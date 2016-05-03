@@ -9,3 +9,5 @@ Addison-Wesley, Boston, Massachusetts, 2000<br>
 (c) Addison-Wesley 2000, all rights reserved<br>
 [Chapter 11](http://www.laputan.org/pub/sag/IP_chapter.pdf)
 
+SO:[what exactly is intentional programming ?](http://stackoverflow.com/questions/201386/what-exactly-is-intentional-programming)
+
